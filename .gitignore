@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Environment secrets
+.env
+.env.example
+
+# macOS
+.DS_Store
+
+# Uploaded files (disk storage)
+backend/uploads/pesticides/*
+!backend/uploads/pesticides/.gitkeep
+
+# Logs
+*.log
+npm-debug.log*
+
+
+atlas-credentials.env
+
+# Large media files
+*.MP4
+*.mp4
+*.mov
+*.MOV
+

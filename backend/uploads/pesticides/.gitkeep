@@ -1,0 +1,2 @@
+# Pesticide images uploaded via the /api/pesticides POST endpoint are stored here.
+# This file ensures the directory is tracked by Git.
