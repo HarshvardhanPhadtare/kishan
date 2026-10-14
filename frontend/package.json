@@ -1,9 +1,5 @@
 {
   "name": "kisanbazaar-frontend",
   "version": "1.0.0",
-  "description": "KisanBazaar Frontend — Vanilla HTML/CSS/JS SPA",
-  "private": true,
-  "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && cp index.html _redirects vercel.json dist/ && cp -R public dist/public"
-  }
+  "description": "KisanBazaar Frontend — Vanilla HTML/CSS/JS SPA"
 }
