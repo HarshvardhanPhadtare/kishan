@@ -64,3 +64,31 @@ jobs:
           find src -type f -name '*.js' -print0 | xargs -0 -n1 node --check
 
           echo "No backend lint, test, type-check, or build scripts are configured."
+
+
+          
+  health-monitor:
+    name: Basic Health Monitoring
+    runs-on: ubuntu-latest
+    needs: [frontend, backend]
+    if: always()
+
+    steps:
+      - name: Check project health
+        env:
+          FRONTEND_STATUS: ${{ needs.frontend.result }}
+          BACKEND_STATUS: ${{ needs.backend.result }}
+        run: |
+          echo "================================"
+          echo "     PROJECT HEALTH CHECK"
+          echo "================================"
+
+          if [ "$FRONTEND_STATUS" = "success" ] && [ "$BACKEND_STATUS" = "success" ]; then
+            echo "STATUS: HEALTHY"
+            echo "All CI checks passed."
+          else
+            echo "STATUS: UNHEALTHY"
+            echo "One or more CI checks failed."
+            exit 1
+          fi
+
